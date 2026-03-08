@@ -68,7 +68,7 @@ def run(prune_frac=0.0, kd_scale=None, precision=None):
        total_bytes += op["bytes"]
 
 
-   mac_energy = total_macs * Config.ENERGY_PER_MAC_FP16 * Config.MAC_ENERGY_SCALE[Config.DEFAULT_PRECISION]
+   mac_energy = total_macs * Config.ENERGY_PER_MAC_FP16 * Config.MAC_ENERGY_SCALE[precision]
    dram_energy = total_bytes * Config.ENERGY_PER_BYTE_DRAM
    total_energy = mac_energy + dram_energy
 
@@ -236,6 +236,7 @@ def main():
 
 if __name__ == "__main__":
    main()
+
 
 
 
